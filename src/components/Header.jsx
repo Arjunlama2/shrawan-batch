@@ -3,8 +3,12 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNav from "./MobileNav";
 import { RxCross2 } from "react-icons/rx";
 
+
+
+
+
 function Header() {
-  const [isMobile,setMobile]=useState(false)
+  const [isMobile, setIsMobile]=useState(false)
   return (
     <>
       <header className="flex justify-between mx-6 items-center h-16 ">
@@ -25,11 +29,11 @@ function Header() {
           </button>
         </div>
         {
-          isMobile?<RxCross2 className="md:hidden text-3xl"   onClick={()=>setMobile(false)} />:  <GiHamburgerMenu className="md:hidden text-3xl"  onClick={()=>setMobile(true)}/>
+          isMobile?<RxCross2 className="md:hidden text-3xl"   onClick={()=>setIsMobile(false)} />:  <GiHamburgerMenu className="md:hidden text-3xl"  onClick={()=>setIsMobile(true)}/>
         }
       
 
-        {isMobile && <MobileNav />}
+        {isMobile && <MobileNav setIsMobile={setIsMobile} />}
       </header>
     </>
   );
